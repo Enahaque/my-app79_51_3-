@@ -1,8 +1,8 @@
-import { CheckCircleIcon } from '@heroicons/react/solid';
 import React from 'react';
+import Benefit from '../Benefit/Benefit';
 
 const PricingOption = (props) => {
-    const{name,price}=props.pricingOption;
+    const{name,price,benefits}=props.pricingOption;
     return (
         <div className='text-3xl bg-slate-100 p-5 rounded-lg'>
             <h1>{name}</h1>
@@ -11,9 +11,13 @@ const PricingOption = (props) => {
                 <span>/mo</span>
                 <div>
                     <h3 className='text-xl text-left'>Benefits:</h3>
-                    <p  className='flex items-center text-xl'><CheckCircleIcon className='w-5 h-5 text-green-500 mr-2'></CheckCircleIcon>
-                    Awesome Features
-                    </p>
+                    {
+                        benefits.map(benefit=><Benefit
+                        key={benefit.id}
+                        benefit={benefit}
+                        
+                        ></Benefit>)
+                    }
                     
                 </div>
             </p>
